@@ -16,12 +16,7 @@
                   scope="col"
                   class="text-sm font-medium text-white px-6 py-4 text-left"
                 >
-                  <button
-                    @click="
-                      getSortingCategory('lastName'),
-                        (this.toggleOrder = !this.toggleOrder)
-                    "
-                  >
+                  <button @click="getSortingCategory('lastName')">
                     Name {{ toggleOrder }}
                   </button>
                 </th>
@@ -41,12 +36,7 @@
                   scope="col"
                   class="text-sm font-medium text-white px-6 py-4 text-left"
                 >
-                  <button
-                    @click="
-                      getSortingCategory('experience'),
-                        (this.toggleOrder = !this.toggleOrder)
-                    "
-                  >
+                  <button @click="getSortingCategory('experience')">
                     Experience
                   </button>
                 </th>
@@ -54,12 +44,7 @@
                   scope="col"
                   class="text-sm font-medium text-white px-6 py-4 text-left"
                 >
-                  <button
-                    @click="
-                      getSortingCategory('rating'),
-                        (this.toggleOrder = !this.toggleOrder)
-                    "
-                  >
+                  <button @click="getSortingCategory('rating')">
                     Rating
                   </button>
                 </th>
@@ -134,6 +119,7 @@ export default {
 
     // category to sort by
     getSortingCategory(category) {
+      this.toggleOrder = !this.toggleOrder
       this.sortingCategory = category
       this.orderType = this.toggleOrder ? 'asc' : 'desc'
       console.log('order type', this.orderType)
@@ -153,10 +139,6 @@ export default {
       })
       console.log('sorted', this.$store.getters.allHandymen)
     },
-
-    // async sortByExperience(){},
-
-    // async sortByRating() {}
   },
 
   mounted() {
